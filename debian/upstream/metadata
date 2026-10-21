@@ -1,0 +1,16 @@
+# Metadata about the upstream project.
+# See https://wiki.debian.org/UpstreamMetadata
+
+# Uncomment these and fill them out to help users interact with upstream:
+Changelog: https://www.fmod.com/docs/api/welcome-revision-history.html
+Documentation: https://www.fmod.com/docs/api
+Registration: https://www.fmod.com/profile/register
+
+# Uncomment these and fill them out to help users evaluate upstream:
+Gallery: https://www.fmod.com/games
+
+# Uncomment these and fill them out to help resolve security issues:
+Security-Contact: https://www.fmod.com/vulnerability-disclosure-policy
+
+# Uncomment these and fill them out to help researchers cite the project:
+Other-References: https://www.fmod.com/attribution

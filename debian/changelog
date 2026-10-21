@@ -1,0 +1,7 @@
+fmod (2.04.00-1) UNRELEASED; urgency=low
+
+  * Package FMOD Engine 2.04.00
+    - Un-vendor Qt
+    - Un-vendor libopus
+
+ -- Crystal Durham <cad97@cad97.com>  Wed, 21 Oct 2026 17:53:50 -0500

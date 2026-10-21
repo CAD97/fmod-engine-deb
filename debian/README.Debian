@@ -1,0 +1,39 @@
+FMOD Engine for Debian
+
+  * Package FMOD Engine
+    - fmod-dev: metapackage with everything
+    - fmod-doc: [doc]
+  * Package FMOD Core API [api/core]
+    - libfmod, libfmodl: [api/core/lib]
+    - libfmod-dev: [api/core/inc]
+    - libfmod-examples: [api/core/examples]
+  * Package FMOD FSBank API [api/fsbank]
+    - libfsbank, libfsbankl: [api/fsbank/lib]
+    - libfsbank-dev: [api/fsbank/inc]
+  * Package FMOD Studio API [api/studio]
+    - libfmodstudio, libfmodstudiol: [api/studio/lib]
+    - libfmodstudio-dev: [api/studio/inc]
+    - libfmodstudio-examples: [api/studio/examples]
+  * Package FMOD Engine tools [bin]
+  * Exclude vendored Qt
+    - remove RPATH $ORIGIN/lib
+    - remove NEEDED libicu*.so.73
+    - requires Qt 6.9, available in resolute or later
+  * Exclude example media
+    - EULA is very clear about no redistribution ever
+    - It must be acquired directly from upstream
+    - Providing the example code is still useful
+  * Un-vendor libopus
+    - NB: libfsbank dllopens plain libopus.so
+    - Thus we have a dynamic dependency on libopus-dev
+  * Keep vendored libfsbvorbis
+    - Custom libvorbis used for libfsbank
+
+Download the vendor tarball from <https://www.fmod.com/download#fmodengine>.
+FMOD is non-free software; you must create an account and agree to their EULA.
+No debian/watch is provided
+
+To build:
+  mk-origtargz ../fmodstudioapi20400linux.tar.gz
+  tar -xf ../fmod_2.04.00.orig.tar.xz --strip-components=1
+  debuild --lintian-opts -E --pedantic

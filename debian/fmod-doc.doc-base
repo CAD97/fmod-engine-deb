@@ -1,0 +1,9 @@
+Document: fmod
+Title: FMOD API User Manual
+Section: Programming
+Abstract: Here you will find information regarding the functionality
+ and use of the FMOD Engine and all of its APIs.
+
+Format: HTML
+Files: /usr/share/doc/fmod/api/*.html
+Index: /usr/share/doc/fmod/api/welcome.html

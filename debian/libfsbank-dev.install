@@ -1,0 +1,3 @@
+api/fsbank/inc/*.h usr/include
+libfsbank.pc usr/lib/${DEB_HOST_MULTIARCH}/pkgconfig
+libfsbankL.pc usr/lib/${DEB_HOST_MULTIARCH}/pkgconfig

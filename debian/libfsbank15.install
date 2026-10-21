@@ -1,0 +1,1 @@
+api/fsbank/lib/${env:FMOD_ARCH}/libfsbank.so.* usr/lib/${DEB_HOST_MULTIARCH}

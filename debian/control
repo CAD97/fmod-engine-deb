@@ -1,0 +1,284 @@
+Source: fmod
+Maintainer: Crystal Durham <cad97@cad97.com>
+Standards-Version: 4.7.3
+Description: FMOD Engine development package
+ The FMOD Engine is a runtime library for playing adaptive audio in games.
+ It consists of two APIs: FMOD Studio API, and the FMOD Core API.
+ .
+ The FMOD Core API allows audio programmers to create audio content without
+ using FMOD Studio, and to interact with the FMOD Engine's underlying
+ mechanisms. This makes it more powerful and flexible than the FMOD Studio API.
+ .
+ The FMOD Studio API can load and play .bank files created in FMOD Studio, an
+ application that allows sound designers and composers to create adaptive audio
+ content for games. This makes it less flexible than the FMOD Core API, but
+ easier to use, especially for sound designers with limited audio programming
+ experience and audio programmers with limited experience of sound design.
+ .
+ FMOD is not free software. Get a license: <https://www.fmod.com/licensing>
+Homepage: https://www.fmod.com/
+Section: non-free/libs
+Build-Depends: debhelper-compat (= 13)
+Build-Depends-Arch: dh-exec (>= 0.29), patchelf
+Vcs-Browser: https://github.com/CAD97/fmod-engine-deb
+Vcs-Git: https://github.com/CAD97/fmod-engine-deb.git
+
+Package: fmod-dev
+Architecture: all
+Multi-Arch: foreign
+Section: non-free/devel
+Description: FMOD Engine development package
+ The FMOD Engine is a runtime library for playing adaptive audio in games.
+ It consists of two APIs: FMOD Studio API, and the FMOD Core API.
+ .
+ This is a metapackage containing everything needed to develop using the FMOD
+ Engine.
+ .
+ FMOD is not free software. Get a license: <https://www.fmod.com/licensing>
+Depends: fmod-doc (= ${binary:Version}),
+         libfmod-dev (= ${binary:Version}),
+         libfmod-examples (= ${binary:Version}),
+         libfmodstudio-dev (= ${binary:Version}),
+         libfmodstudio-examples (= ${binary:Version}),
+         libfsbank-dev (= ${binary:Version}),
+         ${misc:Depends}
+Suggests: fmodprofiler, fsbank, fsbank-gui
+
+Package: fmod-doc
+Architecture: all
+Multi-Arch: foreign
+Homepage: https://www.fmod.com/
+Section: non-free/devel
+Depends: ${misc:Depends}
+Suggests: fmod-dev, libfmod-dev, libfmodstudio-dev
+Description: FMOD API User Manual
+ The FMOD Engine is a runtime library for playing adaptive audio in games.
+ It consists of two APIs: FMOD Studio API, and the FMOD Core API.
+ .
+ FMOD is not free software. Get a license: <https://www.fmod.com/licensing>
+
+Package: libfmod15
+Provides: libfmod (= ${binary:Version})
+Architecture: amd64 arm64 armhf i386
+Multi-Arch: same
+Homepage: https://www.fmod.com/core
+Section: non-free/sound
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Recommends: libasound2, libpulse0
+Suggests: fmodprofiler, libfmodstudio, libfsbank
+Description: FMOD Core API
+ The FMOD Core API allows audio programmers to create audio content without
+ using FMOD Studio, and to interact with the FMOD Engine's underlying
+ mechanisms. This makes it more powerful and flexible than the FMOD Studio API.
+ .
+ FMOD is not free software. Get a license: <https://www.fmod.com/licensing>
+
+Package: libfmodl15
+Provides: libfmodl (= ${binary:Version})
+Architecture: amd64 arm64 armhf i386
+Multi-Arch: same
+Homepage: https://www.fmod.com/core
+Section: non-free/sound
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Recommends: libasound2, libpulse0
+Suggests: fmodprofiler, libfmodstudiol, libfsbankl
+Description: FMOD Core API (logging runtime)
+ The FMOD Core API allows audio programmers to create audio content without
+ using FMOD Studio, and to interact with the FMOD Engine's underlying
+ mechanisms. This makes it more powerful and flexible than the FMOD Studio API.
+ .
+ FMOD is not free software. Get a license: <https://www.fmod.com/licensing>
+
+Package: libfmod-dev
+Architecture: amd64 arm64 armhf i386
+Multi-Arch: same
+Homepage: https://www.fmod.com/core
+Section: non-free/devel
+Depends: libfmod15 (= ${binary:Version}),
+         libfmodl15 (= ${binary:Version}),
+         ${misc:Depends}
+Suggests: fmodprofiler, libfmod-examples, libfmodstudio
+Description: FMOD Core API development package
+ The FMOD Core API allows audio programmers to create audio content without
+ using FMOD Studio, and to interact with the FMOD Engine's underlying
+ mechanisms. This makes it more powerful and flexible than the FMOD Studio API.
+ .
+ FMOD is not free software. Get a license: <https://www.fmod.com/licensing>
+
+Package: libfmod-examples
+Architecture: all
+Multi-Arch: foreign
+Homepage: https://www.fmod.com/core
+Section: non-free/devel
+Depends: libfmod-dev (= ${binary:Version}), ${misc:Depends}
+Description: FMOD Core API examples
+ The FMOD Core API allows audio programmers to create audio content without
+ using FMOD Studio, and to interact with the FMOD Engine's underlying
+ mechanisms. This makes it more powerful and flexible than the FMOD Studio API.
+ .
+ FMOD is not free software. Get a license: <https://www.fmod.com/licensing>
+
+Package: libfmodstudio15
+Provides: libfmodstudio (= ${binary:Version})
+Architecture: amd64 arm64 armhf i386
+Multi-Arch: same
+Homepage: https://www.fmod.com/studio
+Section: non-free/devel
+Depends: libfmod15 (= ${binary:Version}), ${misc:Depends}, ${shlibs:Depends}
+Suggests: fmodprofiler
+Description: FMOD Studio API
+ The FMOD Studio API can load and play .bank files created in FMOD Studio, an
+ application that allows sound designers and composers to create adaptive audio
+ content for games. This makes it less flexible than the FMOD Core API, but
+ easier to use, especially for sound designers with limited audio programming
+ experience and audio programmers with limited experience of sound design.
+ .
+ FMOD is not free software. Get a license: <https://www.fmod.com/licensing>
+
+Package: libfmodstudiol15
+Provides: libfmodstudiol (= ${binary:Version})
+Architecture: amd64 arm64 armhf i386
+Multi-Arch: same
+Homepage: https://www.fmod.com/studio
+Section: non-free/devel
+Depends: libfmodl15 (= ${binary:Version}), ${misc:Depends}, ${shlibs:Depends}
+Suggests: fmodprofiler
+Description: FMOD Studio API (logging runtime)
+ The FMOD Studio API can load and play .bank files created in FMOD Studio, an
+ application that allows sound designers and composers to create adaptive audio
+ content for games. This makes it less flexible than the FMOD Core API, but
+ easier to use, especially for sound designers with limited audio programming
+ experience and audio programmers with limited experience of sound design.
+ .
+ FMOD is not free software. Get a license: <https://www.fmod.com/licensing>
+
+Package: libfmodstudio-dev
+Architecture: amd64 arm64 armhf i386
+Multi-Arch: same
+Homepage: https://www.fmod.com/studio
+Section: non-free/devel
+Depends: libfmodstudio15 (= ${binary:Version}),
+         libfmodstudiol15 (= ${binary:Version}),
+         ${misc:Depends}
+Suggests: fmodprofiler, libfmodstudio-examples
+Description: FMOD Studio API development package
+ The FMOD Studio API can load and play .bank files created in FMOD Studio, an
+ application that allows sound designers and composers to create adaptive audio
+ content for games. This makes it less flexible than the FMOD Core API, but
+ easier to use, especially for sound designers with limited audio programming
+ experience and audio programmers with limited experience of sound design.
+ .
+ FMOD is not free software. Get a license: <https://www.fmod.com/licensing>
+
+Package: libfmodstudio-examples
+Architecture: all
+Multi-Arch: foreign
+Section: non-free/devel
+Homepage: https://www.fmod.com/studio
+Depends: libfmodstudio-dev (= ${binary:Version}), ${misc:Depends}
+Description: FMOD Studio API examples
+ The FMOD Studio API can load and play .bank files created in FMOD Studio, an
+ application that allows sound designers and composers to create adaptive audio
+ content for games. This makes it less flexible than the FMOD Core API, but
+ easier to use, especially for sound designers with limited audio programming
+ experience and audio programmers with limited experience of sound design.
+ .
+ FMOD is not free software. Get a license: <https://www.fmod.com/licensing>
+
+Package: libfsbvorbis
+Architecture: amd64 i386
+Multi-Arch: same
+Section: non-free/devel
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Recommends: libfsbank15
+Description: FMOD Sound Bank vorbis encoder
+ The custom vorbis encoder used by FMOD.
+ .
+ FMOD is not free software. Get a license: <https://www.fmod.com/licensing>
+
+Package: libfsbank15
+Provides: libfsbank (= ${binary:Version})
+Architecture: amd64 i386
+Multi-Arch: same
+Homepage: https://www.fmod.com/studio
+Section: non-free/devel
+Depends: libfmod15 (= ${binary:Version}),
+         libfsbvorbis (= ${binary:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Recommends: libopus-dev
+Description: FMOD Sound Bank API
+ While the FMOD Core API can play loose audio files in a variety of formats, it
+ can also load and play .fsb files. .fsb files, also known as FMOD sound banks,
+ are a container format optimized for loading and playing sounds in games.
+ .
+ FMOD is not free software. Get a license: <https://www.fmod.com/licensing>
+
+Package: libfsbankl15
+Provides: libfsbankl (= ${binary:Version})
+Architecture: amd64 i386
+Multi-Arch: same
+Homepage: https://www.fmod.com/studio
+Section: non-free/devel
+Depends: libfmodl15 (= ${binary:Version}),
+         libfsbvorbis (= ${binary:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Recommends: libopus-dev
+Description: FMOD Sound Bank API (logging runtime)
+ While the FMOD Core API can play loose audio files in a variety of formats, it
+ can also load and play .fsb files. .fsb files, also known as FMOD sound banks,
+ are a container format optimized for loading and playing sounds in games.
+ .
+ FMOD is not free software. Get a license: <https://www.fmod.com/licensing>
+
+Package: libfsbank-dev
+Architecture: amd64 i386
+Multi-Arch: same
+Section: non-free/devel
+Depends: libfsbank15 (= ${binary:Version}),
+         libfsbankl15 (= ${binary:Version}),
+         ${misc:Depends}
+Suggests: fsbank, fsbank-gui
+Description: FMOD Sound Bank API development package
+ While the FMOD Core API can play loose audio files in a variety of formats, it
+ can also load and play .fsb files. .fsb files, also known as FMOD sound banks,
+ are a container format optimized for loading and playing sounds in games.
+ .
+ FMOD is not free software. Get a license: <https://www.fmod.com/licensing>
+
+Package: fmodprofiler
+Architecture: amd64
+Multi-Arch: no
+Section: non-free/devel
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: FMOD Profiler GUI tool
+ The FMOD Profiler GUI tool included in the FMOD Engine SDK.
+ .
+ FMOD is not free software. Get a license: <https://www.fmod.com/licensing>
+
+Package: fsbank
+Architecture: amd64
+Multi-Arch: no
+Section: non-free/devel
+Depends: libfmodl15 (= ${binary:Version}),
+         libfsbankl15 (= ${binary:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Description: FMOD Sound Bank CLI tool
+ The FSBank CLI tool included in the FMOD Engine SDK.
+ .
+ FMOD is not free software. Get a license: <https://www.fmod.com/licensing>
+
+Package: fsbank-gui
+Architecture: amd64
+Multi-Arch: no
+Section: non-free/devel
+Depends: libfmodl15 (= ${binary:Version}),
+         libfsbankl15 (= ${binary:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Description: FMOD Sound Bank GUI tool
+ The FSBank GUI tool included in the FMOD Engine SDK.
+ .
+ FMOD is not free software. Get a license: <https://www.fmod.com/licensing>

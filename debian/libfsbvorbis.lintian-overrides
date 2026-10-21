@@ -1,0 +1,5 @@
+# private PPA binary repack
+initial-upload-closes-no-bugs
+source-is-missing
+# upstream provides it like this
+sharedobject-in-library-directory-missing-soname

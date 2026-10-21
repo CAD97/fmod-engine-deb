@@ -1,0 +1,4 @@
+# FMOD cannot be watched automatically; downloads require accepting the FMOD
+# EULA behind a login at <https://www.fmod.com/download#fmodengine>.
+# New releases must be fetched manually and repacked with mk-origtargz
+# (see README.Debian).

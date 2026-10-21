@@ -1,0 +1,11 @@
+prefix=/usr
+includedir=${prefix}/include
+libdir=${prefix}/lib/${env:DEB_HOST_MULTIARCH}
+
+Name: libfmod
+Description: FMOD Core API
+Version: ${env:DEB_VERSION_UPSTREAM}
+Cflags: -I${includedir}
+Libs: -L${libdir} -lfmod
+
+Conflicts: libfmodL

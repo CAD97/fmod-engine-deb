@@ -1,0 +1,3 @@
+doc/FMOD${Space}API${Space}User${Space}Manual/* usr/share/doc/fmod/api
+doc/LICENSE.TXT usr/share/doc/fmod
+doc/revision.txt usr/share/doc/fmod

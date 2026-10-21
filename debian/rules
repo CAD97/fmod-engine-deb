@@ -1,0 +1,33 @@
+#!/usr/bin/make -f
+
+include /usr/share/dpkg/default.mk
+include debian/architecture.mk
+
+export DEB_VERSION_UPSTREAM
+
+%:
+	dh $@
+
+override_dh_dwz: # disable for binary repack
+override_dh_strip: # disable for binary repack
+
+pc_in_files := $(notdir $(wildcard debian/*.pc.in))
+pc_files := $(basename $(pc_in_files))
+bin_files := $(wildcard bin/*)
+
+execute_before_dh_install: $(addprefix debian/tmp/,$(pc_files) $(bin_files))
+
+debian/tmp:
+	mkdir debian/tmp
+debian/tmp/%.pc: debian/%.pc.in | debian/tmp
+	dh-exec --no-defaults --with=subst "$<" > "$@"
+
+icu_needed=$$(patchelf --print-needed "$@" | grep -oE '^libicu.*?$$')
+
+debian/tmp/bin: | debian/tmp
+	mkdir debian/tmp/bin
+debian/tmp/bin/%: bin/% | debian/tmp/bin
+	cp "$<" "$@"
+	patchelf --remove-rpath "$@"
+	@test "$(icu_needed)" || { echo "ERROR: expected $@ to have NEEDED libicu* but it didn't" >&2; exit 1; }
+	for lib in $(icu_needed); do patchelf --remove-needed "$$lib" "$@"; done

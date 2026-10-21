@@ -1,0 +1,12 @@
+/*/
+!/patches/
+!/source/
+!/upstream/
+
+/debhelper-build-stamp
+/files
+/*.substvars
+
+# # You may want a .git/info/exclude with:
+# /*/
+# !/debian/

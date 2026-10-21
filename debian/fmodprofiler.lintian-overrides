@@ -1,0 +1,7 @@
+# private PPA binary repack
+hardening-no-pie
+no-manual-page
+initial-upload-closes-no-bugs
+source-is-missing
+spelling-error-in-binary
+unstripped-binary-or-object

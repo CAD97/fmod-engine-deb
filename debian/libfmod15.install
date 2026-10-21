@@ -1,0 +1,1 @@
+api/core/lib/${env:FMOD_ARCH}/libfmod.so.* usr/lib/${DEB_HOST_MULTIARCH}

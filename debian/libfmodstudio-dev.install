@@ -1,0 +1,4 @@
+api/studio/inc/*.cs usr/share/libfmod-dev/cs
+api/studio/inc/*.h api/studio/inc/*.hpp usr/include
+libfmodstudio.pc usr/lib/${DEB_HOST_MULTIARCH}/pkgconfig
+libfmodstudioL.pc usr/lib/${DEB_HOST_MULTIARCH}/pkgconfig

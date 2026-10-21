@@ -1,0 +1,2 @@
+usr/lib/${DEB_HOST_MULTIARCH}/libfmod.so.15.0 usr/lib/${DEB_HOST_MULTIARCH}/libfmod.so
+usr/lib/${DEB_HOST_MULTIARCH}/libfmodL.so.15.0 usr/lib/${DEB_HOST_MULTIARCH}/libfmodL.so
